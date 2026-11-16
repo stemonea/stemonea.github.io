@@ -1,7 +1,6 @@
 import { Suspense, useEffect, useState, type ReactNode } from 'react'
 import { Scene } from './scene/Scene'
 import { useMachine } from './store'
-import { content } from './content'
 import { CssScreenLayer } from './scene/CssScreen'
 import { ScreenUI } from './os/ScreenUI'
 import { HomePage } from './home/HomePage'
@@ -103,10 +102,6 @@ export default function App() {
   const entering = useMachine((s) => s.entering || (s.badge === 'inserting' && s.view === 'home'))
   const phone = useMachine((s) => s.device === 'iphone')
   const setFocus = useMachine((s) => s.setFocus)
-
-  useEffect(() => {
-    document.title = content.profile.name
-  }, [])
 
   // keyboard + viewport
   useEffect(() => {

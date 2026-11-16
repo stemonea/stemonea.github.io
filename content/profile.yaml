@@ -1,0 +1,40 @@
+# Profilo principale — mostrato nella finestra "Impostazioni di Sistema" e sul badge.
+name: "Stefano Francesco Monea"
+title: "M.Sc."
+role: "PhD Student"
+affiliation: "DIMES, University of Calabria"
+location: "Rende, Italy"
+flag: "🇮🇹"
+# Monogram shown on the computers' wallpapers
+logo: "SFM"
+email: "stefanofrancesco.monea@unical.it"
+cv: "CV.pdf"
+photo: "me.jpg"
+photoFocus: { x: 0.44, y: 0.63 }
+authorAliases:
+  - "Monea, Stefano Francesco"
+  - "S. F. Monea"
+badge:
+  institution: "University of Calabria (Italy)"
+  id: "PHD-2026-0111"
+  validUntil: "11/2029"
+  program: "PhD Programme in ICT · XLII cycle"
+bio:
+  - "I am a Ph.D. student at DIMES, University of Calabria. I am particularly interested in integrating LLMs with formal argumentation frameworks. My goal is to develop systems capable of identifying, structuring, and reasoning about human arguments. I am also exploring model interpretability and explainability, with a focus on understanding, analyzing, and explaining the internal mechanisms and decisions of AI models."
+  - "I earned an M.Sc. in Computer Engineering, specializing in Artificial Intelligence and Machine Learning, from the University of Calabria, graduating with a final grade of 110/110 cum laude. My Master's thesis focused on extracting knowledge-augmented quantitative bipolar argumentation frameworks using Large Language Models, under the supervision of Prof. Sergio Greco and Dr. Lucio La Cava."
+  - "In 2026, I worked as a research fellow at DIMES, focusing on the automatic extraction of argumentative structures from political debates using Transformer-based models."
+research:
+  - title: "Neuro-Symbolic"
+    description: "Integrating symbolic reasoning techniques, particularly computational argumentation, with Large Language Models (LLMs) to enhance their reasoning capabilities."
+    icon: "cpu"
+  - title: "Argument Mining"
+    description: "Detecting and classifying arguments, claims and the entities they talk about."
+    icon: "aperture"
+  - title: "Interpretability"
+    description: "Understanding, analyzing and explaining the internal mechanisms and decisions of LLMs."
+    icon: "network"
+links:
+  - label: "GitHub"
+    href: "https://github.com/stemonea"
+  - label: "LinkedIn"
+    href: "https://linkedin.com/in/stefano-francesco-monea"

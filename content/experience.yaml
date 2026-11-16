@@ -1,0 +1,48 @@
+# Esperienze e formazione. type: Education | Research | Teaching | Industry | Visiting
+- type: "Education"
+  role: "PhD in Information and Communication Technologies"
+  organization: "DIMES, University of Calabria"
+  location: "Rende, Italy"
+  start: "2026-11"
+  end: "present"
+  description: "XLII cycle. Neuro-Symbolic and Large Language Models."
+
+- type: "Research"
+  role: "Research Fellow"
+  organization: "DIMES, University of Calabria"
+  location: "Rende, Italy"
+  start: "2026-01"
+  end: "2026-10"
+  description: "Automatic extraction of argumentative structures from political debates with Transformer models."
+  highlights:
+    - "Scientific supervisor: Prof. Sergio Greco"
+
+- type: "Teaching"
+  role: "Teaching Assistant — Fundamentals of Computer Science"
+  organization: "DESF, University of Calabria"
+  location: "Rende, Italy"
+  start: "2025-10"
+  end: "2026-06"
+  description: "B.Sc. in Statistics for Data Science, academic year 2025–2026."
+
+- type: "Education"
+  role: "M.Sc. in Computer Engineering — 110/110 cum laude"
+  organization: "DIMES, University of Calabria"
+  location: "Rende, Italy"
+  start: "2023-09"
+  end: "2025-12"
+  description: "Curriculum: Artificial Intelligence & Machine Learning. Thesis: Extracting Knowledge-Augmented Quantitative Bipolar Argumentation Frameworks via Large Language Models."
+  highlights:
+    - "Advisor: Prof. Sergio Greco"
+    - "Co-advisor: Dr. Lucio La Cava"
+
+- type: "Education"
+  role: "B.Sc. in Computer Engineering — 107/110"
+  organization: "DIMES, University of Calabria"
+  location: "Rende, Italy"
+  start: "2020-09"
+  end: "2023-09"
+  description: "Thesis: A PyTorch Implementation of an Outlier Explanation Technique."
+  highlights:
+    - "Advisor: Prof. Fabrizio Angiulli"
+    - "Co-advisor: Dr. Simona Nisticò"

@@ -1,0 +1,210 @@
+:root {
+  color-scheme: dark;
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Helvetica Neue', Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+* { box-sizing: border-box; }
+html, body, #root {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: #000;
+  overscroll-behavior: none;
+}
+
+.stage {
+  position: fixed;
+  inset: 0;
+  /* the room: dim when the Mac is off, pitch black with a soft halo when it's on */
+  background:
+    radial-gradient(60% 55% at 50% 42%, rgba(120, 140, 200, 0.10), transparent 70%),
+    #000;
+  transition: background 1.2s ease;
+}
+.stage.room-lit {
+  background:
+    radial-gradient(70% 70% at 55% 35%, #2a2a30 0%, #121215 55%, #060607 100%);
+}
+.stage canvas {
+  touch-action: none;
+}
+.canvas-wrap {
+  position: absolute;
+  inset: 0;
+  /* the Mac fades in once the scene has actually rendered (no pop-in) */
+  /* (opacity only: a CSS transform here would skew R3F's canvas measurement) */
+  opacity: 0;
+  transition: opacity 1.4s ease;
+}
+.stage.ready .canvas-wrap {
+  opacity: 1;
+}
+/* even darker surroundings while zoomed on the screen */
+.stage.focused {
+  background: #000;
+}
+
+
+.desk-controls {
+  position: fixed;
+  z-index: 60;
+  right: 18px;
+  bottom: 18px;
+  display: flex;
+  gap: 8px;
+}
+.pill {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  padding: 9px 15px;
+  border: 0;
+  border-radius: 999px;
+  font: 500 13px/1 Inter, -apple-system, sans-serif;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(14px);
+  box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.22);
+  cursor: pointer;
+  transition: opacity 0.4s ease, transform 0.4s ease, background 0.2s;
+}
+.pill:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+.pill.primary {
+  background: rgba(10, 132, 255, 0.85);
+  box-shadow: 0 6px 20px -6px rgba(10, 132, 255, 0.8), inset 0 0 0 0.5px rgba(255, 255, 255, 0.3);
+}
+.pill.primary:hover {
+  background: rgba(10, 132, 255, 1);
+}
+.pill.hidden {
+  display: none;
+}
+
+/* on the classic site the 3D scene is hidden (and not rendering) */
+.stage.view-home .canvas-wrap {
+  opacity: 0;
+  visibility: hidden;
+  transition: none; /* the switch to the classic site is immediate */
+}
+.stage.view-mac .canvas-wrap {
+  opacity: 1;
+  transition: none; /* revealed directly by the fading home page */
+}
+.home-layer {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  transition: opacity 0.35s ease;
+}
+.home-layer.dragging {
+  pointer-events: none;
+  transition: none;
+}
+
+.hint {
+  position: fixed;
+  z-index: 50;
+  left: 50%;
+  top: 14px;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.07);
+  backdrop-filter: blur(12px);
+  box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.14);
+  white-space: nowrap;
+  pointer-events: none;
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.hint.hidden {
+  opacity: 0;
+  transform: translate(-50%, -8px);
+}
+.hint kbd {
+  font: inherit;
+  font-weight: 600;
+  color: #fff;
+}
+.hint .pulse {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #30d158;
+  box-shadow: 0 0 0 0 rgba(48, 209, 88, 0.6);
+  animation: pulse 1.8s infinite;
+}
+.hint.off .pulse {
+  background: #ff9f0a;
+  box-shadow: 0 0 0 0 rgba(255, 159, 10, 0.6);
+}
+@keyframes pulse {
+  70% { box-shadow: 0 0 0 8px rgba(0, 0, 0, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); }
+}
+
+
+/* CSS3D layer that carries the macOS screen on top of the WebGL canvas */
+.css3d-layer {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 10;
+}
+.css3d-camera {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform-style: preserve-3d;
+}
+.css3d-object {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: auto;
+}
+
+/* ---------- inside the Mac: macOS full screen at native resolution ---------- */
+.os-fullscreen {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background: #000;
+  animation: os-enter 0.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+@keyframes os-enter {
+  from { opacity: 0; filter: blur(10px) brightness(1.6); transform: scale(0.97); }
+  to { opacity: 1; filter: none; transform: none; }
+}
+/* the WebGL scene sleeps while you're inside */
+.stage.mode-inside .canvas-wrap {
+  visibility: hidden;
+}
+/* a white flash as the camera passes through the glass */
+.stage.mode-diving::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 35;
+  pointer-events: none;
+  background: radial-gradient(circle at 50% 45%, rgba(255, 255, 255, 0.0), rgba(170, 200, 255, 0.0));
+  animation: dive-flash 1.05s ease-in forwards;
+}
+@keyframes dive-flash {
+  0%, 70% { background-color: rgba(200, 220, 255, 0); }
+  100% { background-color: rgba(200, 220, 255, 0.35); }
+}
+.stage.mode-surfacing .canvas-wrap {
+  animation: surface 0.6s ease both;
+}
+@keyframes surface {
+  from { opacity: 0.2; filter: blur(6px); }
+  to { opacity: 1; filter: none; }
+}

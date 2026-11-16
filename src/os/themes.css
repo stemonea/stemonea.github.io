@@ -1,0 +1,127 @@
+/* =====================================================================================
+   Interface themes, picked by the computer you started from the home page.
+   ===================================================================================== */
+
+/* ---------- Classic Macintosh: 1984-style start-up (the desktop itself is regular macOS) ---------- */
+/* start-up */
+.retro-boot {
+  background: repeating-conic-gradient(#000 0 25%, #fff 0 50%) 0 0 / 2px 2px !important;
+  gap: 18px !important;
+  animation: none !important;
+}
+.retro-happy,
+.retro-welcome {
+  padding: 10px 16px;
+  background: #fff;
+  border: 1px solid #000;
+  box-shadow: 2px 2px 0 #000;
+}
+.retro-welcome {
+  padding: 18px 34px;
+  font: 600 15px 'Pixelify Sans', Chicago, monospace;
+  color: #000;
+}
+.retro-happy {
+  animation: retro-blink 1.5s steps(1) both;
+}
+.retro-welcome {
+  animation: retro-show 1.5s steps(1) both;
+}
+@keyframes retro-blink {
+  0%, 45% { opacity: 1; }
+  46%, 100% { opacity: 0; display: none; }
+}
+@keyframes retro-show {
+  0%, 45% { opacity: 0; }
+  46%, 100% { opacity: 1; }
+}
+
+/* ---------- MacBook: macOS in dark mode ---------- */
+.screen.dark {
+  --accent: #0a84ff;
+  --text: #f5f5f7;
+  --text-2: #a1a1a6;
+  --sep: rgba(255, 255, 255, 0.1);
+  --win-bg: rgba(36, 36, 40, 0.94);
+  --group-bg: rgba(255, 255, 255, 0.06);
+}
+.screen.dark .wallpaper {
+  background:
+    radial-gradient(90% 70% at 85% 100%, #5b2bd6 0%, transparent 60%),
+    radial-gradient(80% 60% at 10% 90%, #0d4bbf 0%, transparent 55%),
+    radial-gradient(70% 60% at 70% 10%, #1b2a6b 0%, transparent 60%),
+    linear-gradient(160deg, #0b1027 0%, #141b46 50%, #22104a 100%);
+}
+.screen.dark .window {
+  box-shadow: 0 0 0 0.5px rgba(255, 255, 255, 0.14), 0 14px 36px rgba(0, 0, 0, 0.55);
+}
+.screen.dark .glass-inset {
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 0 0 0.5px rgba(255, 255, 255, 0.08);
+}
+.screen.dark .sidebar button:hover,
+.screen.dark .row.clickable:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+.screen.dark .sidebar button.active {
+  background: rgba(255, 255, 255, 0.12);
+}
+.screen.dark .search,
+.screen.dark .segmented,
+.screen.dark .chip {
+  background: rgba(255, 255, 255, 0.08);
+  color: var(--text);
+}
+.screen.dark .search input {
+  color: var(--text);
+}
+.screen.dark .nav-btn,
+.screen.dark .btn,
+.screen.dark .segmented button.active {
+  color: var(--text) !important;
+  background: rgba(255, 255, 255, 0.12) !important;
+}
+.screen.dark .thead {
+  background: transparent;
+}
+.screen.dark .tr:nth-child(odd) {
+  background: rgba(255, 255, 255, 0.03);
+}
+.screen.dark .dropdown,
+.screen.dark .banner,
+.screen.dark .tooltip {
+  color: var(--text);
+  background: rgba(40, 40, 44, 0.85);
+}
+.screen.dark .dock {
+  background: rgba(30, 30, 34, 0.45);
+}
+.screen.dark .preview {
+  background: linear-gradient(#2a2a2e, #1c1c1f);
+}
+.screen.dark .textedit {
+  color: #1d1d1f;
+}
+/* MacBook display notch */
+.screen.macbook::before {
+  content: '';
+  position: absolute;
+  z-index: 9999;
+  top: 0;
+  left: 50%;
+  width: 13%;
+  height: 26px;
+  transform: translateX(-50%);
+  border-radius: 0 0 9px 9px;
+  background: #000;
+}
+.screen.macbook .menubar .left {
+  max-width: 43%;
+  overflow: hidden;
+}
+.screen.macbook {
+  border-radius: 9px 9px 2px 2px;
+}
+.screen.imac {
+  border-radius: 2px;
+}

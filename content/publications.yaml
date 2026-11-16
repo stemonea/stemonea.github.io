@@ -1,0 +1,21 @@
+# Pubblicazioni. Campi opzionali: abstract, arxiv, doi, pdf, code, bibtex, selected
+# Per le spille delle conferenze: location (città sulla spilla + disegno del monumento),
+# landmark (palm | pagoda | mountains | bridge | tower | dome | skyline | arch | wave, altrimenti indovinato
+# dalla città) e logo (immagine in public/, al posto della sigla).
+- key: LaCava2026whoargues
+  tag: "Argument Mining"
+  title: "Who Argues What? Joint Argument-Entity Detection and Classification in Political Debates"
+  authors: "La Cava, Lucio and Monea, Stefano Francesco and Greco, Sergio"
+  venue: "Findings of EMNLP 2026"
+  year: 2026
+  selected: true
+  pdf: "https://aclanthology.org/2026.findings-emnlp.2437/"
+
+- key: Alfano2026llmam
+  tag: "Argumentation"
+  title: "LLM-based Argument Mining meets Argumentation and Description Logics: a Unified Framework for Reasoning about Debates"
+  authors: "Alfano, G. and Greco, Sergio and La Cava, Lucio and Monea, Stefano Francesco and Trubitsyna, I."
+  venue: "arXiv preprint arXiv:2603.02858 (under review)"
+  year: 2026
+  selected: true
+  arxiv: "https://arxiv.org/abs/2603.02858"
